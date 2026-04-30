@@ -1,12 +1,10 @@
 // Popup controller for Vivid Dark
-
 let currentTheme = 'ember';
 let isEnabled = true;
 
 // DOM elements
 const toggleSwitch = document.getElementById('vividToggle');
 const themeCards = document.querySelectorAll('.theme-card');
-const statValues = document.querySelectorAll('.stat-value');
 
 // Load settings from storage
 async function loadSettings() {
@@ -21,10 +19,8 @@ async function loadSettings() {
 
 // Update UI based on settings
 function updateUI() {
-  // Update toggle
   toggleSwitch.checked = isEnabled;
   
-  // Update active theme card
   themeCards.forEach(card => {
     const theme = card.getAttribute('data-theme');
     if (theme === currentTheme) {
@@ -32,22 +28,6 @@ function updateUI() {
     } else {
       card.classList.remove('active');
     }
-  });
-  
-  // Update stat colors based on theme
-  const themeColors = {
-    ember: '#FF4500',
-    gold: '#FFD700',
-    pulse: '#DC143C',
-    neon: '#9B59B6',
-    frost: '#00BFFF'
-  };
-  
-  statValues.forEach(stat => {
-    stat.style.background = `linear-gradient(135deg, ${themeColors[currentTheme]}, ${themeColors[currentTheme]}CC)`;
-    stat.style.webkitBackgroundClip = 'text';
-    stat.style.backgroundClip = 'text';
-    stat.style.color = 'transparent';
   });
 }
 
@@ -112,14 +92,14 @@ themeCards.forEach(card => {
 async function init() {
   await loadSettings();
   updateUI();
-  
-  // Get current tab info for stats
-  const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-  if (tab && tab.url) {
-    const url = new URL(tab.url);
-    const domain = url.hostname;
-    document.querySelector('.stat-value:last-child').textContent = domain.split('.')[0];
-  }
 }
 
+// Remove the problematic domain code - popup stays open until user closes it
 init();
+// Add close button functionality
+const closeButton = document.getElementById('closePopup');
+if (closeButton) {
+  closeButton.addEventListener('click', () => {
+    window.close();
+  });
+}
