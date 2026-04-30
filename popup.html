@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vivid Dark</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="vivid-popup">
+    <!-- Header with glassmorphic effect -->
+    <div class="popup-header">
+      <div class="logo-section">
+        <div class="logo-icon">✦</div>
+        <div class="logo-text">
+          <h1>Vivid Dark</h1>
+          <span class="subtitle">OLED Night Mode</span>
+        </div>
+      </div>
+      <div class="power-toggle">
+        <input type="checkbox" id="vividToggle" class="toggle-switch">
+        <label for="vividToggle" class="toggle-label"></label>
+      </div>
+    </div>
+
+    <!-- Theme selector -->
+    <div class="themes-section">
+      <div class="section-title">
+        <span class="title-icon">🎨</span>
+        <span>Vivid Profiles</span>
+      </div>
+      <div class="theme-grid" id="themeGrid">
+        <div class="theme-card" data-theme="ember">
+          <div class="theme-preview" style="background: #FF4500;"></div>
+          <div class="theme-name">Ember</div>
+          <div class="theme-desc">Warm & Focused</div>
+        </div>
+        <div class="theme-card" data-theme="gold">
+          <div class="theme-preview" style="background: #FFD700;"></div>
+          <div class="theme-name">Gold</div>
+          <div class="theme-desc">Sharp & Professional</div>
+        </div>
+        <div class="theme-card" data-theme="pulse">
+          <div class="theme-preview" style="background: #DC143C;"></div>
+          <div class="theme-name">Pulse</div>
+          <div class="theme-desc">Deep & Aggressive</div>
+        </div>
+        <div class="theme-card" data-theme="neon">
+          <div class="theme-preview" style="background: #9B59B6;"></div>
+          <div class="theme-name">Neon</div>
+          <div class="theme-desc">Cyber Vibes</div>
+        </div>
+        <div class="theme-card" data-theme="frost">
+          <div class="theme-preview" style="background: #00BFFF;"></div>
+          <div class="theme-name">Frost</div>
+          <div class="theme-desc">Clean & Cold</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats and info -->
+    <div class="stats-section">
+      <div class="stat-item">
+        <span class="stat-value" id="pageCount">OLED</span>
+        <span class="stat-label">True Black</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-value" id="batterySavings">15%</span>
+        <span class="stat-label">Battery Save</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-value" id="currentSite">Active</span>
+        <span class="stat-label">Global Mode</span>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="popup-footer">
+      <div class="footer-note">
+        <span class="accent-dot"></span>
+        Vivid System Active
+      </div>
+      <div class="version">v1.0.0</div>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
